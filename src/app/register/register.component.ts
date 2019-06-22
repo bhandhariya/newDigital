@@ -21,8 +21,8 @@ export class RegisterComponent implements OnInit {
     }
     console.log(obj)
     if(obj.password != obj.rpassword){
-      
-      
+       
+                                     
       
 
     }else{
