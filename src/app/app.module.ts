@@ -9,6 +9,7 @@ import { HttpClientModule } from "@angular/common/http";
 //component and modules 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 //firebase 
 import { AngularFireModule } from "@angular/fire";
@@ -34,7 +35,7 @@ import { HomeComponent } from './home/home.component';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,AngularFireDatabaseModule,AngularFireStorageModule,
-    FormsModule,HttpClientModule
+    FormsModule,HttpClientModule,ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
