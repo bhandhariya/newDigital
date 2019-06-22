@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import * as swal from "sweetalert";
+
 
 @Component({
   selector: 'app-register',
@@ -21,10 +21,7 @@ export class RegisterComponent implements OnInit {
     }
     console.log(obj)
     if(obj.password != obj.rpassword){
-      swal("Are you sure?", {
-        dangerMode: true,
-        buttons: true,
-      });
+      
       
       
 
