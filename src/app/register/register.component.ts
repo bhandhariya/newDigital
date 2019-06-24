@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-
+import swal from 'sweetalert';
+import { FormControl,FormGroup,FormBuilder, Validators  } from '@angular/forms';
+import { from, interval } from 'rxjs';
+import { ajax } from "rxjs/ajax";
+import { HttpClient } from "@angular/common/http";
+import { RegisterService } from "../service/register.service";
 
 @Component({
   selector: 'app-register',
@@ -8,8 +13,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
   name;email;password;rpassword;
-  constructor() { }
-
+  constructor(private fb: FormBuilder,private http:HttpClient,private registerService:RegisterService) { }
+   profileForm=this.fb.group({
+    firstName:['',Validators.required],
+    email:['',Validators.required],
+    password:['',Validators.required],
+    rpassword:['',Validators.required]
+  })
+  
   ngOnInit() {
   }
   register(){
@@ -22,11 +33,26 @@ export class RegisterComponent implements OnInit {
     console.log(obj)
     if(obj.password != obj.rpassword){
        
-                                     
+                             
       
 
     }else{
       
     }
   }
+  onSubmit() {
+    if(this.profileForm.valid){
+      if(this.profileForm.get('password').value === this.profileForm.get('rpassword').value){
+       this.registerService.register(this.profileForm.value);
+       this.profileForm.reset({
+         
+       })
+      }else{
+        swal("Oops!", "password does not match", "error");
+      }
+    }
+  }
+
+
+  
 }
