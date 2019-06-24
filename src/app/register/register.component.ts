@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import swal from 'sweetalert';
+import swal from 'sweetalert2';
 import { FormControl,FormGroup,FormBuilder, Validators  } from '@angular/forms';
 import { from, interval } from 'rxjs';
 import { ajax } from "rxjs/ajax";
@@ -48,7 +48,7 @@ export class RegisterComponent implements OnInit {
          
        })
       }else{
-        swal("Oops!", "password does not match", "error");
+        swal.fire("Oops!", "password does not match", "error");
       }
     }
   }
