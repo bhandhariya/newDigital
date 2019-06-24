@@ -16,7 +16,7 @@ export class LoginService {
           uid:user.uid,
           email:user.email
         }
-        this.http.post('http://localhost:3000/api/users/login',obj).subscribe(this.cb)
+        this.http.post('https://digitalapp001.herokuapp.com/api/users/login',obj).subscribe(this.cb)
       }
      
     })
