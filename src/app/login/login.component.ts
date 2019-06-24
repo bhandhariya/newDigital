@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import swal from 'sweetalert2';
+import { FormControl,FormGroup,FormBuilder, Validators  } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { AngularFireAuth } from "@angular/fire/auth";
+import { LoginService } from "../service/login.service";
 
 @Component({
   selector: 'app-login',
@@ -9,24 +13,23 @@ import swal from 'sweetalert2';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router:Router) { }
-
+  constructor(private router:Router,private fb: FormBuilder,private http:HttpClient,private auth:AngularFireAuth,private log:LoginService) { }
+  profileForm=this.fb.group({
+   
+    email:['',Validators.required],
+    password:['',Validators.required],
+    
+  })
   ngOnInit() {
-    // swal({
-    //   title: "Are you sure?",
-    //   text: "Are you sure that you want to leave this page?",
-    //   icon: "warning",
-    //   dangerMode: true,
-    // })
-    // .then(willDelete => {
-    //   if (willDelete) {
-    //     swal("Deleted!", "Your imaginary file has been deleted!", "success");
-    //   }
-    // });
+   
   }
 
   gotoRegister(){
     this.router.navigate(['register'])
   }
-
+  onSubmit() {
+    if(this.profileForm.valid){
+       this.log.login(this.profileForm.value)
+    }
+  }
 }
