@@ -4,12 +4,13 @@ import swal from "sweetalert";
 import { HttpClient } from '@angular/common/http';
 import { AngularFireAuth } from "@angular/fire/auth";
 import { error } from '@angular/compiler/src/util';
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
 export class RegisterService {
 
-  constructor(private http:HttpClient,private auth:AngularFireAuth) { }
+  constructor(private http:HttpClient,private auth:AngularFireAuth,private router:Router) { }
 
   register(u){
    console.log(u);
@@ -39,6 +40,10 @@ export class RegisterService {
    })
   }
   cb=(dt)=>{
-    console.log(dt)
+   
+    if(dt.uid){
+      swal("Great", "User Registered Successfully", "success");
+      this.router.navigate(['login'])
+    }
   }
 }
