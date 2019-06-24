@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ajax } from "rxjs/ajax";
-import swal from "sweetalert";
+import swal from "sweetalert2";
 import { HttpClient } from '@angular/common/http';
 import { AngularFireAuth } from "@angular/fire/auth";
 import { error } from '@angular/compiler/src/util';
@@ -36,13 +36,13 @@ export class RegisterService {
    }).catch(error=>{
     var errorCode = error.code;
     var errorMessage = error.message;
-    swal("Oops!", errorMessage, "error");
+    swal.fire("Oops!", errorMessage, "error");
    })
   }
   cb=(dt)=>{
    
     if(dt.uid){
-      swal("Great", "User Registered Successfully", "success");
+      swal.fire("Great", "User Registered Successfully", "success");
       this.router.navigate(['login'])
     }
   }
