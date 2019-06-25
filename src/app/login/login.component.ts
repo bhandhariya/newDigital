@@ -29,7 +29,8 @@ export class LoginComponent implements OnInit {
   }
   onSubmit() {
     if(this.profileForm.valid){
-       this.log.login(this.profileForm.value)
+       this.log.login(this.profileForm.value);
+      
     }
   }
 }
