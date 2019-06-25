@@ -3,9 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 
-
-
-
 //component and modules 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +17,7 @@ import { environment } from 'src/environments/environment.prod';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
+import { LoginGuard } from './shared/login.guard';
 
 
 
@@ -35,9 +33,9 @@ import { HomeComponent } from './home/home.component';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,AngularFireDatabaseModule,AngularFireStorageModule,
-    FormsModule,HttpClientModule,ReactiveFormsModule
+    FormsModule,HttpClientModule,ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [LoginGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
