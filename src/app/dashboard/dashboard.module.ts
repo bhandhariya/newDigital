@@ -4,6 +4,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import {Routes,RouterModule} from '@angular/router';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
+import { TestComponent } from './test/test.component';
 
 const AppRoutes :Routes = [
   { path : '' , component: DashboardComponent},
@@ -12,7 +13,7 @@ const AppRoutes :Routes = [
 ]
 
 @NgModule({
-  declarations: [DashboardComponent, NavbarComponent, SidebarComponent],
+  declarations: [DashboardComponent, NavbarComponent, SidebarComponent, TestComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(AppRoutes)
