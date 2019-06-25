@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {Routes,RouterModule} from '@angular/router';
+import { NavbarComponent } from './shared/navbar/navbar.component';
+import { SidebarComponent } from './shared/sidebar/sidebar.component';
 
 const AppRoutes :Routes = [
   { path : '' , component: DashboardComponent},
@@ -10,7 +12,7 @@ const AppRoutes :Routes = [
 ]
 
 @NgModule({
-  declarations: [DashboardComponent],
+  declarations: [DashboardComponent, NavbarComponent, SidebarComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(AppRoutes)
