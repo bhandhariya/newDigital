@@ -7,6 +7,8 @@ import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
+/// angular material 
+import {MatInputModule} from '@angular/material/input';
 
 //firebase 
 import { AngularFireModule } from "@angular/fire";
@@ -36,6 +38,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,AngularFireDatabaseModule,AngularFireStorageModule,
     FormsModule,HttpClientModule,ReactiveFormsModule, BrowserAnimationsModule,
+    MatInputModule
   ],
   providers: [LoginGuard],
   bootstrap: [AppComponent]
