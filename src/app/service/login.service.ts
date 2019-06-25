@@ -20,6 +20,18 @@ export class LoginService {
         this.http.post('https://digitalapp001.herokuapp.com/api/users/login',obj).subscribe(this.cb)
       }
      
+    }).catch(function(){
+      const Toast = swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000
+      });
+      
+      Toast.fire({
+        type: 'error',
+        title: 'Credential not match '
+      })
     })
   }
   cb=(dt)=>{
