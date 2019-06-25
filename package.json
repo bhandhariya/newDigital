@@ -24,6 +24,7 @@
     "express": "^4.17.1",
     "firebase": "^6.2.0",
     "ngx-alerts": "^3.4.5",
+    "ngx-bootstrap": "^5.0.0",
     "ngx-loading": "^3.0.1",
     "rxjs": "~6.4.0",
     "sweetalert2": "^8.13.0",
