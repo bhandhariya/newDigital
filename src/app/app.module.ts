@@ -18,6 +18,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { LoginGuard } from './shared/login.guard';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -34,7 +35,7 @@ import { LoginGuard } from './shared/login.guard';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,AngularFireDatabaseModule,AngularFireStorageModule,
-    FormsModule,HttpClientModule,ReactiveFormsModule,
+    FormsModule,HttpClientModule,ReactiveFormsModule, BrowserAnimationsModule,
   ],
   providers: [LoginGuard],
   bootstrap: [AppComponent]
