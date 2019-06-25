@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from "@angular/fire/auth";
 import { HttpClient } from '@angular/common/http';
 import swal from "sweetalert2";
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  constructor(private auth:AngularFireAuth,private http:HttpClient) { }
+  constructor(private auth:AngularFireAuth,private http:HttpClient, private router:Router) { }
   login(u){
     return this.auth.auth.signInWithEmailAndPassword(u.email,u.password).then(()=>{
       var user=this.auth.auth.currentUser;
@@ -22,7 +23,9 @@ export class LoginService {
     })
   }
   cb=(dt)=>{
-    localStorage.setItem('token',dt.token);
+    sessionStorage.setItem('Token',dt.token);
+    
+   
     swal.fire({
       position: 'top-end',
       type: 'success',
@@ -30,5 +33,6 @@ export class LoginService {
       showConfirmButton: false,
       timer: 1500
     })
+    this.router.navigate(['dashboard']);
   }
 }
