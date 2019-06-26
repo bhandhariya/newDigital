@@ -80,7 +80,7 @@
             </mat-form-field></td>
             <td><mat-form-field class="example-full-width">
               <mat-label>Gender</mat-label>
-              <mat-select formControlName="gender" [(value)]="gender">
+              <mat-select formControlName="gender" >
                 <mat-option>None</mat-option>
                 <mat-option value="Male">Male</mat-option>
                 <mat-option value="Female">Female</mat-option>
@@ -101,7 +101,7 @@
             <td>
               <mat-form-field class="example-full-width">
                 <mat-label>Marital Status</mat-label>
-                <mat-select formControlName="maritalStatus" [(value)]="maritalStatus">
+                <mat-select formControlName="maritalStatus" >
                   <mat-option>None</mat-option>
                   <mat-option value="Married">Married</mat-option>
                   <mat-option value="Unmarried">Unmarried</mat-option>
@@ -115,7 +115,7 @@
          </form>
           </div>
           <div class="card-footer text-muted">
-           <!-- {{profileForm.value | json}} -->
+           {{profileForm.value | json}}
            <input type="button" (click)="save()"  value="Save" class="btn btn-primary"  >
           </div>
         </div>
