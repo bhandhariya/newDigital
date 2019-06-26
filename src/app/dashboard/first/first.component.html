@@ -5,7 +5,114 @@
       <app-navbar></app-navbar>
       <div class="container-fluid">
         <!-- Begin Main Content -->
-           
+        <div class="card">
+          <div class="card-header">
+            Header
+          </div>
+          <div class="card-body">
+            <form class="example-form" [formGroup]="profileForm" (ngSubmit)="save()"  >
+           <mat-form-field class="example-full-width">
+             <input matInput formControlName="doctorName"  placeholder="Doctor" required  value="Dr Raj Bhandhariya">
+           </mat-form-field>
+         
+           <table class="example-full-width" cellspacing="0"><tr>
+             <td><mat-form-field class="example-full-width">
+               <input  formControlName="firstName" required matInput placeholder="First name">
+             </mat-form-field></td>
+             <td><mat-form-field class="example-full-width">
+                 <input formControlName="middleName" matInput placeholder="Middle name">
+               </mat-form-field></td>
+             <td><mat-form-field class="example-full-width">
+               <input formControlName="lastName" required matInput placeholder="Last Name ">
+             </mat-form-field></td>
+             <td><mat-form-field class="example-full-width">
+              <input formControlName="addmissionDate" required matInput [matDatepicker]="picker" placeholder="Choose a date">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+               </mat-form-field></td>
+               <td rowspan="2" colspan="2" ><mat-form-field class="example-full-width">
+                <ngx-mat-file-input (change)="uploadPhoto($event)" formControlName="basicfile" placeholder="Select Profile Photo" ></ngx-mat-file-input>
+                <mat-icon matSuffix>folder</mat-icon>
+                 </mat-form-field></td>
+           </tr></table>
+         
+           <p>
+             <mat-form-field class="example-full-width">
+               <textarea formControlName="permanentAddress" required matInput placeholder="Permanent Address"></textarea>
+             </mat-form-field>
+             <mat-form-field class="example-full-width">
+               <textarea formControlName="correspondenceAddress" matInput placeholder="Address 2"></textarea>
+             </mat-form-field>
+           </p>
+
+           <table class="example-full-width" cellspacing="0"><tr>
+            <td><mat-form-field class="example-full-width">
+              <input formControlName="mobileNumber" matInput placeholder="Mobile Number">
+            </mat-form-field></td>
+            <td><mat-form-field class="example-full-width">
+              <input formControlName="landlineNumber" matInput placeholder="Landline Number">
+            </mat-form-field></td>
+            <td><mat-form-field class="example-full-width">
+              <input formControlName="residanceNumber" matInput placeholder="Residence Number">
+            </mat-form-field></td>
+            <td><mat-form-field class="example-full-width">
+              <input formControlName="officeNumber" matInput placeholder="Office Contact Number">
+            </mat-form-field></td>
+            <td><mat-form-field class="example-full-width">
+              <input formControlName="email" matInput placeholder="Email">
+            </mat-form-field></td>
+            
+          </tr></table>
+
+          <table class="example-full-width" cellspacing="0"><tr>
+            <td><mat-form-field class="example-full-width">
+              <input formControlName="DOB" required matInput [matDatepicker]="dob" placeholder="Date of Birth">
+              <mat-datepicker-toggle matSuffix [for]="dob"></mat-datepicker-toggle>
+              <mat-datepicker #dob></mat-datepicker>
+            </mat-form-field></td>
+            <td><mat-form-field class="example-full-width">
+              <input formControlName="age" matInput placeholder="Age">
+            </mat-form-field></td>
+            <td><mat-form-field class="example-full-width">
+              <mat-label>Gender</mat-label>
+              <mat-select formControlName="gender" [(value)]="selected">
+                <mat-option>None</mat-option>
+                <mat-option value="Male">Male</mat-option>
+                <mat-option value="Female">Female</mat-option>
+                
+              </mat-select>
+            </mat-form-field></td>
+            <td><mat-form-field class="example-full-width">
+              <input formControlName="education" matInput placeholder="Education">
+            </mat-form-field></td>
+            <td><mat-form-field class="example-full-width">
+              <input formControlName="occupation" matInput placeholder="Occupation">
+            </mat-form-field></td>
+            
+          </tr>
+        </table>
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <mat-label>Marital Status</mat-label>
+                <mat-select formControlName="maritalStatus" [(value)]="selected">
+                  <mat-option>None</mat-option>
+                  <mat-option value="Married">Married</mat-option>
+                  <mat-option value="Unmarried">Unmarried</mat-option>
+                  
+                </mat-select>
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+           <input type="submit" value="Save" class="btn btn-primary"  >
+         </form>
+          </div>
+          <div class="card-footer text-muted">
+           {{profileForm.value | json}}
+          </div>
+        </div>
         <!-- End of Main Content -->
       </div>
     </div>

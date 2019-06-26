@@ -6,6 +6,14 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { TestComponent } from './test/test.component';
 import { FirstComponent } from './first/first.component';
+import {MatInputModule} from '@angular/material/input';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import {MatSelectModule} from '@angular/material/select';
+import { MatButtonModule, MatIconModule } from '@angular/material';
+import { MatFileUploadModule } from 'angular-material-fileupload';
+import { MaterialFileInputModule } from 'ngx-material-file-input';
 
 const AppRoutes :Routes = [
   { path : '' , component: DashboardComponent},
@@ -18,7 +26,9 @@ const AppRoutes :Routes = [
   declarations: [DashboardComponent, NavbarComponent, SidebarComponent, TestComponent, FirstComponent],
   imports: [
     CommonModule,
-    RouterModule.forChild(AppRoutes)
+    RouterModule.forChild(AppRoutes),
+    FormsModule,ReactiveFormsModule,
+    MatInputModule,MatNativeDateModule,MatDatepickerModule,MatSelectModule,MatButtonModule,MatFileUploadModule,MaterialFileInputModule,MatIconModule
   ]
 })
 export class DashboardModule { }
