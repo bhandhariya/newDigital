@@ -12,8 +12,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
 import { MatButtonModule, MatIconModule } from '@angular/material';
-import { MatFileUploadModule } from 'angular-material-fileupload';
-import { MaterialFileInputModule } from 'ngx-material-file-input';
+
 
 const AppRoutes :Routes = [
   { path : '' , component: DashboardComponent},
@@ -28,7 +27,7 @@ const AppRoutes :Routes = [
     CommonModule,
     RouterModule.forChild(AppRoutes),
     FormsModule,ReactiveFormsModule,
-    MatInputModule,MatNativeDateModule,MatDatepickerModule,MatSelectModule,MatButtonModule,MatFileUploadModule,MaterialFileInputModule,MatIconModule
+    MatInputModule,MatNativeDateModule,MatDatepickerModule,MatSelectModule,MatButtonModule,MatIconModule
   ]
 })
 export class DashboardModule { }

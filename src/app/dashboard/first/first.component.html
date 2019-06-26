@@ -7,13 +7,21 @@
         <!-- Begin Main Content -->
         <div class="card">
           <div class="card-header">
-            Header
+            Patient Personal Details
           </div>
           <div class="card-body">
             <form class="example-form" [formGroup]="profileForm" (ngSubmit)="save()"  >
-           <mat-form-field class="example-full-width">
+                <table class="example-full-width" cellspacing="0"><tr>
+           <td> <mat-form-field class="example-full-width">
              <input matInput formControlName="doctorName"  placeholder="Doctor" required  value="Dr Raj Bhandhariya">
-           </mat-form-field>
+           </mat-form-field></td>
+           <td  >
+              <!-- <ngx-mat-file-input (change)="uploadPhoto($event)" formControlName="basicfile" placeholder="Select Profile Photo" ></ngx-mat-file-input>
+              <mat-icon matSuffix>folder</mat-icon> -->
+              <input type="file" (change)="uploadPhoto($event)" formControlName="basicfile" placeholder="Select Profile Photo" name="" id="">
+              </td>
+           </tr>
+                </table>
          
            <table class="example-full-width" cellspacing="0"><tr>
              <td><mat-form-field class="example-full-width">
@@ -30,10 +38,7 @@
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
                </mat-form-field></td>
-               <td rowspan="2" colspan="2" ><mat-form-field class="example-full-width">
-                <ngx-mat-file-input (change)="uploadPhoto($event)" formControlName="basicfile" placeholder="Select Profile Photo" ></ngx-mat-file-input>
-                <mat-icon matSuffix>folder</mat-icon>
-                 </mat-form-field></td>
+               
            </tr></table>
          
            <p>
@@ -106,11 +111,12 @@
             </td>
           </tr>
         </table>
-           <input type="submit" value="Save" class="btn btn-primary"  >
+          
          </form>
           </div>
           <div class="card-footer text-muted">
-           {{profileForm.value | json}}
+           <!-- {{profileForm.value | json}} -->
+           <input type="button" (click)="save()"  value="Save" class="btn btn-primary"  >
           </div>
         </div>
         <!-- End of Main Content -->
