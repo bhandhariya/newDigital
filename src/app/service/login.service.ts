@@ -35,9 +35,9 @@ export class LoginService {
     })
   }
   cb=(dt)=>{
-    sessionStorage.setItem('Token',dt.token);
+    console.log(dt)
     
-   
+    sessionStorage.setItem('Token',dt.token);
     swal.fire({
       position: 'top-end',
       type: 'success',
@@ -45,6 +45,6 @@ export class LoginService {
       showConfirmButton: false,
       timer: 1500
     })
-    this.router.navigate(['dashboard']);
+    this.router.navigate(['dashboard',{uid:dt.user._id}]);
   }
 }
