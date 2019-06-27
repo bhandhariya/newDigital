@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 import { AngularFireStorage } from "@angular/fire/storage";
 import { finalize } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-first',
@@ -33,7 +34,7 @@ export class FirstComponent implements OnInit {
     basicfile: new FormControl(''),
     imageURL: new FormControl('',Validators.required),
   });
-  constructor(private storage:AngularFireStorage,private http:HttpClient) { }
+  constructor(private storage:AngularFireStorage,private http:HttpClient,private router:Router) { }
 
   ngOnInit() {
   }
@@ -49,7 +50,8 @@ export class FirstComponent implements OnInit {
   createCB=(dt)=>{
     console.log(dt)
     if(dt.first_name){
-      Swal.fire('ok Patient have been Saved Successfully')
+      Swal.fire('ok Patient have been Saved Successfully');
+      this.router.navigate(['dashboard/second',{id:dt._id}])
     }else{
       Swal.fire('ok Patient not Saved Successfully')
     }
