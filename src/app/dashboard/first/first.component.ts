@@ -41,7 +41,7 @@ export class FirstComponent implements OnInit {
   save(){
     if(this.profileForm.valid){
            console.log(this.profileForm.value);
-           this.http.post('http://localhost:3000/api/pat/create',this.profileForm.value).subscribe(this.createCB)
+           this.http.post('https://digitalapp001.herokuapp.com/api/pat/create',this.profileForm.value).subscribe(this.createCB)
            
     }else{
       Swal.fire('Form not filled properlly ')

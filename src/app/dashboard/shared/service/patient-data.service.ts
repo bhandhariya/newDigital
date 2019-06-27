@@ -11,7 +11,7 @@ export class PatientDataService {
 
   addFamilyData(u){
     console.log(u)
-    this.http.post('http://localhost:3000/api/pat/addFamilyData',u).subscribe(this.addFamilyDataCB)
+    this.http.post('https://digitalapp001.herokuapp.com/api/pat/addFamilyData',u).subscribe(this.addFamilyDataCB)
   }
   addFamilyDataCB=(dt)=>{
     console.log(dt);
