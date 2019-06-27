@@ -25,7 +25,8 @@ const AppRoutes :Routes = [
   { path : '*' ,redirectTo:'dashboard',pathMatch:'full'},
   {path:'first',component:FirstComponent},
   {path:'second',component:SecondComponent},
-  {path:'psy',component:PsychatricComponent}
+  {path:'psy',component:PsychatricComponent},
+  {path:'allpat',component:AllPatComponent}
 ]
 
 @NgModule({
