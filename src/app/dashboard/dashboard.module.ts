@@ -13,13 +13,15 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
 import { MatButtonModule, MatIconModule } from '@angular/material';
 import { SecondComponent } from './second/second.component';
+import { NumberModule } from '../shared/number.module';
 
 
 const AppRoutes :Routes = [
   { path : '' , component: DashboardComponent},
   { path : 'dashboard' , component: DashboardComponent},
   { path : '*' ,redirectTo:'dashboard',pathMatch:'full'},
-  {path:'first',component:FirstComponent}
+  {path:'first',component:FirstComponent},
+  {path:'second',component:SecondComponent},
 ]
 
 @NgModule({
@@ -28,6 +30,7 @@ const AppRoutes :Routes = [
     CommonModule,
     RouterModule.forChild(AppRoutes),
     FormsModule,ReactiveFormsModule,
+    NumberModule,
     MatInputModule,MatNativeDateModule,MatDatepickerModule,MatSelectModule,MatButtonModule,MatIconModule
   ]
 })
