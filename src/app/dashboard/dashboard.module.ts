@@ -12,6 +12,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
 import { MatButtonModule, MatIconModule } from '@angular/material';
+import { SecondComponent } from './second/second.component';
 
 
 const AppRoutes :Routes = [
@@ -22,7 +23,7 @@ const AppRoutes :Routes = [
 ]
 
 @NgModule({
-  declarations: [DashboardComponent, NavbarComponent, SidebarComponent, TestComponent, FirstComponent],
+  declarations: [DashboardComponent, NavbarComponent, SidebarComponent, TestComponent, FirstComponent, SecondComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(AppRoutes),
