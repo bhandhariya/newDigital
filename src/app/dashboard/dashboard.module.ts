@@ -16,6 +16,7 @@ import { SecondComponent } from './second/second.component';
 import { NumberModule } from '../shared/number.module';
 import { PsychatricComponent } from './psychatric/psychatric.component';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { AllPatComponent } from './all-pat/all-pat.component';
 
 
 const AppRoutes :Routes = [
@@ -29,7 +30,8 @@ const AppRoutes :Routes = [
 
 @NgModule({
   declarations: [DashboardComponent, NavbarComponent, SidebarComponent, TestComponent, FirstComponent, SecondComponent,
-    PsychatricComponent],
+    PsychatricComponent,
+    AllPatComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(AppRoutes),
