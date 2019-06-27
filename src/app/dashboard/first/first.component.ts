@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { AngularFireStorage } from "@angular/fire/storage";
 import { finalize } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-first',
@@ -32,16 +33,25 @@ export class FirstComponent implements OnInit {
     basicfile: new FormControl(''),
     imageURL: new FormControl('',Validators.required),
   });
-  constructor(private storage:AngularFireStorage) { }
+  constructor(private storage:AngularFireStorage,private http:HttpClient) { }
 
   ngOnInit() {
   }
   save(){
     if(this.profileForm.valid){
-      Swal.fire('Done you have saved this patient ')
-      console.log(this.profileForm.value)
+           console.log(this.profileForm.value);
+           this.http.post('http://localhost:3000/api/pat/create',this.profileForm.value).subscribe(this.createCB)
+           
     }else{
       Swal.fire('Form not filled properlly ')
+    }
+  }
+  createCB=(dt)=>{
+    console.log(dt)
+    if(dt.first_name){
+      Swal.fire('ok Patient have been Saved Successfully')
+    }else{
+      Swal.fire('ok Patient not Saved Successfully')
     }
   }
   uploadPhoto(event){
