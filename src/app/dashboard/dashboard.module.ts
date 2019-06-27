@@ -14,6 +14,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { MatButtonModule, MatIconModule } from '@angular/material';
 import { SecondComponent } from './second/second.component';
 import { NumberModule } from '../shared/number.module';
+import { PsychatricComponent } from './psychatric/psychatric.component';
 
 
 const AppRoutes :Routes = [
@@ -22,10 +23,12 @@ const AppRoutes :Routes = [
   { path : '*' ,redirectTo:'dashboard',pathMatch:'full'},
   {path:'first',component:FirstComponent},
   {path:'second',component:SecondComponent},
+  {path:'psy',component:PsychatricComponent}
 ]
 
 @NgModule({
-  declarations: [DashboardComponent, NavbarComponent, SidebarComponent, TestComponent, FirstComponent, SecondComponent],
+  declarations: [DashboardComponent, NavbarComponent, SidebarComponent, TestComponent, FirstComponent, SecondComponent,
+    PsychatricComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(AppRoutes),
