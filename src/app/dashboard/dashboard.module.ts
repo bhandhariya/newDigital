@@ -15,6 +15,7 @@ import { MatButtonModule, MatIconModule } from '@angular/material';
 import { SecondComponent } from './second/second.component';
 import { NumberModule } from '../shared/number.module';
 import { PsychatricComponent } from './psychatric/psychatric.component';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 const AppRoutes :Routes = [
@@ -34,7 +35,8 @@ const AppRoutes :Routes = [
     RouterModule.forChild(AppRoutes),
     FormsModule,ReactiveFormsModule,
     NumberModule,
-    MatInputModule,MatNativeDateModule,MatDatepickerModule,MatSelectModule,MatButtonModule,MatIconModule
+    MatInputModule,MatNativeDateModule,MatDatepickerModule,MatSelectModule,MatButtonModule,MatIconModule,
+    MatExpansionModule
   ]
 })
 export class DashboardModule { }
