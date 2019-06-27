@@ -17,6 +17,7 @@ import { NumberModule } from '../shared/number.module';
 import { PsychatricComponent } from './psychatric/psychatric.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { AllPatComponent } from './all-pat/all-pat.component';
+import {MatTableModule} from '@angular/material/table';
 
 
 const AppRoutes :Routes = [
@@ -39,7 +40,7 @@ const AppRoutes :Routes = [
     FormsModule,ReactiveFormsModule,
     NumberModule,
     MatInputModule,MatNativeDateModule,MatDatepickerModule,MatSelectModule,MatButtonModule,MatIconModule,
-    MatExpansionModule
+    MatExpansionModule,MatTableModule
   ]
 })
 export class DashboardModule { }
