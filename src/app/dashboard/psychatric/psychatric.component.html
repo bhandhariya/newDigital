@@ -6,51 +6,155 @@
         <div class="container-fluid">
           <!-- Begin Main Content -->
           <mat-accordion class="example-headers-align">
-              <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+            <form [formGroup]="ChiefComplainForm" (ngSubmit)="profileFormSave()" >  <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+               
                 <mat-expansion-panel-header>
                   <mat-panel-title>
-                    Personal data
+                    Chief Complain
                   </mat-panel-title>
                   <mat-panel-description>
-                    Type your name and age
+                    Type Patient Chief Complain and Duration 
                     <mat-icon>account_circle</mat-icon>
                   </mat-panel-description>
                 </mat-expansion-panel-header>
             
                 <mat-form-field>
-                  <input matInput placeholder="First name">
+                  <input matInput formControlName="complaintName" placeholder="Complaint">
                 </mat-form-field>
             
                 <mat-form-field>
-                  <input matInput type="number" min="1" placeholder="Age">
+                  <mat-label>Duration</mat-label>
+                  <mat-select formControlName="duration" >
+                    <mat-option>Select Your Option</mat-option>
+                    <mat-option value="Last 2 days">Last 2 days</mat-option>
+                    <mat-option value="Last 2 weeks">Last 2 weeks</mat-option>
+                    <mat-option value="Less than 1 month">Less than 1 month</mat-option>
+                    <mat-option value="1 to 3 months">1 to 3 months</mat-option>
+                    <mat-option value="3 to 6 months">3 to 6 months</mat-option>
+                    <mat-option value="More than 6 months">More than 6 months</mat-option>
+                    <mat-option value="More than 1 year">More than 1 year</mat-option>
+                    <mat-option value="More than 5 years">More than 5 years</mat-option>
+                    
+                  </mat-select>
                 </mat-form-field>
             
                 <mat-action-row>
+                    <button mat-button type="submit" color="warn" >Save</button>
                   <button mat-button color="primary" (click)="nextStep()">Next</button>
                 </mat-action-row>
+             
               </mat-expansion-panel>
-            
+            </form>
+            <form [formGroup]="IllnessForm" (ngSubmit)="illnessFormSave()" >
               <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
                 <mat-expansion-panel-header>
                   <mat-panel-title>
-                    Destination
+                    Illness
                   </mat-panel-title>
                   <mat-panel-description>
-                    Type the country name
+                    Type Illness
                     <mat-icon>map</mat-icon>
                   </mat-panel-description>
                 </mat-expansion-panel-header>
-            
-                <mat-form-field>
-                  <input matInput placeholder="Country">
+                <table class="example-full-width" cellspacing="0">
+                  <tr>
+                    <td>
+                <mat-form-field  >
+                  <mat-label>Duration of Currunt Illness</mat-label>
+                  <mat-select formControlName="DurationOfCurruntIllness" >
+                    <mat-option>Select Your Option</mat-option>
+                    <mat-option value="Last 2 days">Last 2 days</mat-option>
+                    <mat-option value="Last 2 weeks">Last 2 weeks</mat-option>
+                    <mat-option value="Less than 1 month">Less than 1 month</mat-option>
+                    <mat-option value="1 to 3 months">1 to 3 months</mat-option>
+                    <mat-option value="3 to 6 months">3 to 6 months</mat-option>
+                    <mat-option value="More than 6 months">More than 6 months</mat-option>
+                    <mat-option value="More than 1 year">More than 1 year</mat-option>
+                    <mat-option value="More than 5 years">More than 5 years</mat-option>
+                    
+                  </mat-select>
                 </mat-form-field>
-            
+              </td>
+              <td>
+                <mat-form-field>
+                  <mat-label>Current Episode Number</mat-label>
+                  <mat-select formControlName="CurruntEpisodeNumber" >
+                    <mat-option>Select Your Option</mat-option>
+                    <mat-option value="1">1</mat-option>
+                    <mat-option value="2">2</mat-option>
+                    <mat-option value="3">3</mat-option>
+                    <mat-option value="4">4</mat-option>
+                    <mat-option value="5">5</mat-option>
+                    <mat-option value="6">6</mat-option>
+                    <mat-option value="7">7</mat-option>
+                    
+                  </mat-select>
+                </mat-form-field>
+              </td>
+              <td>
+                  <mat-form-field>
+                    <mat-label>Mode of Onset</mat-label>
+                    <mat-select formControlName="ModeOfOnset" >
+                      <mat-option>Select Your Option</mat-option>
+                      <mat-option value="Abrupt (Within 48 Hours or less)">Abrupt (Within 48 Hours or less)</mat-option>
+                      <mat-option value="Acute (Within 2 Weeks or less)">Acute (Within 2 Weeks or less)</mat-option>
+                      <mat-option value="Sub-Acute (2 Weeks - 1 Month)">Sub-Acute (2 Weeks - 1 Month)</mat-option>
+                      <mat-option value="Insidious (More than 1 Month)">Insidious (More than 1 Month)</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+              </td>
+              <td>
+                  <mat-form-field>
+                    <mat-label>Course </mat-label>
+                    <mat-select formControlName="Course" >
+                      <mat-option>Select Your Option</mat-option>
+                      <mat-option value="Continous">Continous</mat-option>
+                      <mat-option value="Episodic">Episodic</mat-option>
+                      <mat-option value="Fluctuating">Fluctuating</mat-option> 
+                    </mat-select>
+                  </mat-form-field>
+              </td>
+              </tr>
+              <tr>
+                  <td>
+                      <mat-form-field>
+                        <mat-label>Predisposing Factors</mat-label>
+                        <mat-select formControlName="PredisposingFactors" >
+                          <mat-option>Select Your Option</mat-option>
+                          <mat-option value="Present">Present</mat-option>
+                          <mat-option value="Absent">Absent</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                  </td>
+                  <td>
+                      <mat-form-field>
+                        <mat-label>Precipitating Factors </mat-label>
+                        <mat-select formControlName="PrecipatingFactors"  >
+                          <mat-option>Select Your Option</mat-option>
+                          <mat-option value="Present">Present</mat-option>
+                          <mat-option value="Absent">Absent</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                  </td>
+                  <td>
+                      <mat-form-field>
+                        <mat-label>Perpetuating Factors</mat-label>
+                        <mat-select formControlName="PrepetuatingFactors" >
+                          <mat-option>Select Your Option</mat-option>
+                          <mat-option value="Present">Present</mat-option>
+                          <mat-option value="Absent">Absent</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                  </td>
+              </tr>
+                </table>
                 <mat-action-row>
+                  <button mat-button color="warn" type="submit" >Save</button>
                   <button mat-button color="warn" (click)="prevStep()">Previous</button>
                   <button mat-button color="primary" (click)="nextStep()">Next</button>
                 </mat-action-row>
               </mat-expansion-panel>
-            
+            </form>
               <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
                 <mat-expansion-panel-header>
                   <mat-panel-title>
@@ -73,6 +177,8 @@
                 </mat-action-row>
               </mat-expansion-panel>
             
+           
+           
             </mat-accordion>
             
           <!-- End of Main Content -->
