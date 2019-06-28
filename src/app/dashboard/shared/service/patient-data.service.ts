@@ -22,4 +22,11 @@ export class PatientDataService {
       Swal.fire('error Occured ')
     }
   }
+  getAllPatient(){
+    this.http.get('https://digitalapp001.herokuapp.com/api/pat/getall').subscribe(this.cb)
+  }
+  cb=(dt)=>{
+    console.log(dt);
+    return dt;
+  }
 }

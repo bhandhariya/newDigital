@@ -21,9 +21,9 @@ export class SidebarComponent implements OnInit {
   }
   goTopatientTableComponent(){
     if(this.router.url == 'dashboard'){
-      this.router.navigate(['../dashboard/first']);
+      this.router.navigate(['../dashboard/allpat']);
     }else{
-      this.router.navigate(['../../dashboard/first']);
+      this.router.navigate(['../../dashboard/allpat']);
     }
   }
 }

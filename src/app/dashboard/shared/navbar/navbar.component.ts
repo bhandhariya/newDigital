@@ -11,11 +11,11 @@ import { HttpClient } from '@angular/common/http';
 export class NavbarComponent implements OnInit {
 
   constructor(private share:ShareuidService,private auth:AngularFireAuth,private http:HttpClient) { }
-  uid;username;
+  uid;username='Raja Saini';
   ngOnInit() {
-    this.uid=this.share.getUID();
-    console.log(this.uid)
-    this.getUserNameByUid()
+    // this.uid=this.share.getUID();
+    // console.log(this.uid)
+    // this.getUserNameByUid()
    
   }
   getUserNameByUid(){
@@ -23,7 +23,7 @@ export class NavbarComponent implements OnInit {
       id:this.uid
     }
     console.log(obj)
-    this.http.post('http://localhost:3000/api/users/getDataById',obj).subscribe(this.cb)
+    // this.http.post('https://digitalapp001.herokuapp.com/api/users/getDataById',obj).subscribe(this.cb)
   }
   cb=(dt)=>{
     console.log(dt)
