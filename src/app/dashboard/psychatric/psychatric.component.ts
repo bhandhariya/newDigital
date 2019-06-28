@@ -44,4 +44,8 @@ export class PsychatricComponent implements OnInit {
     console.log(this.IllnessForm.value)
   }
 
+  favoriteSeason: string;
+  seasons: string[] = ['Winter', 'Spring', 'Summer', 'Autumn'];
+
+
 }
