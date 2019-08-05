@@ -11,6 +11,7 @@ const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
   {path:'dashboard', loadChildren:'./dashboard/dashboard.module#DashboardModule'},
+  {path:'admin', loadChildren:'./admin/admin.module#AdminModule'},
   {path:'*', redirectTo:'login', pathMatch:'full'},
 ];
 
